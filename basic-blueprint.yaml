@@ -1,9 +1,9 @@
 
-name: "Blueprint Basic Example"
+name: Blueprint Basic Example
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Cloud-Schematics/vscode-blueprint-schema/master/blueprint_schema.json
-type: "blueprint"
-schema_version: "1.0.0"
-description: "Simple blueprint to demonstrate module linking"
+type: blueprint
+schema_version: 1.0.0
+description: Simple blueprint to demonstrate module linking
 inputs:
   - name: cos_instance_name
   - name: cos_storage_plan
@@ -19,7 +19,7 @@ modules:
     source:
       source_type: github
       git:
-        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-DefaultResourceGroup"
+        git_repo_url: https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-DefaultResourceGroup
         git_branch: main
     inputs:
       - name: any
@@ -32,7 +32,7 @@ modules:
     source:
       source_type: github
       git:
-        git_repo_url: "https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-Storage"
+        git_repo_url: https://github.com/Cloud-Schematics/blueprint-example-modules/tree/main/IBM-Storage
         git_branch: main
     inputs:
       - name: cos_instance_name
@@ -40,7 +40,7 @@ modules:
       - name: cos_storage_plan
         value: $blueprint.cos_storage_plan
       - name: cos_single_site_loc
-        value: "ams03"
+        value: ams03
       - name: resource_group_id
         value: $module.basic-resource-group.outputs.resource_group_id
     outputs:
